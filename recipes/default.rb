@@ -20,7 +20,7 @@ bash "extract_source" do
   code <<-EOH
     mkdir -p #{node['mmonit']['dir']}
     tar xzf #{node['mmonit']['source']['filename']} -C #{node['mmonit']['dir']}
-    mv #{node['mmonit']['dir']}/mmonit-#{node['mmonit']['source']['version']}/*/* #{node['mmonit']['dir']}/ 
+    mv #{node['mmonit']['dir']}/mmonit-#{node['mmonit']['source']['version']}/* #{node['mmonit']['dir']}/ 
     EOH
   not_if { ::File.exists?(node["mmonit"]["dir"]) }
 end
